@@ -1,0 +1,24 @@
+local function hexToRgb(hex)
+    local r = tonumber(hex:sub(2, 3), 16)
+    local g = tonumber(hex:sub(4, 5), 16)
+    local b = tonumber(hex:sub(6, 7), 16)
+    return r, g, b
+end
+
+local colorsRgb = {}
+local hexColors = {
+    "#C11DB7", "#971F97", "#9E61D6", "#A9F5AD", "#B3074C",
+    "#BADAAB", "#C5AD12", "#CF3061", "#D6C3F8", "#E096DF",
+    "#EBE94E", "#F27AC5", "#3823EA", "#79D4BB", "#0F078C"
+}
+
+-- Convert hex to RGB and store in table
+for _, hex in ipairs(hexColors) do
+    local r, g, b = hexToRgb(hex)
+    table.insert(colorsRgb, {r, g, b})
+end
+
+-- Example usage:
+for i, color in ipairs(colorsRgb) do
+    print("Color " .. i .. ": RGB(" .. color[1] .. ", " .. color[2] .. ", " .. color[3] .. ")")
+end
